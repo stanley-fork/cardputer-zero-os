@@ -55,6 +55,7 @@ install_file "$REPO_DIR/files/usr/local/libexec/cardputer-zero/zero-greeter-shou
 install_file "$REPO_DIR/files/usr/local/sbin/zero-helper" /usr/local/sbin/zero-helper 0755
 install_file "$REPO_DIR/files/usr/local/sbin/zero-hdmi-lightdm-policy" /usr/local/sbin/zero-hdmi-lightdm-policy 0755
 install_file "$REPO_DIR/scripts/setup-user-services.sh" /usr/local/libexec/cardputer-zero/setup-user-services.sh 0755
+install_file "$REPO_DIR/scripts/setup-external-uart.sh" /usr/local/libexec/cardputer-zero/setup-external-uart.sh 0755
 
 install_file "$REPO_DIR/files/usr/share/xgreeters/cardputer-zero-pi-greeter-labwc.desktop" /usr/share/xgreeters/cardputer-zero-pi-greeter-labwc.desktop 0644
 install_file "$REPO_DIR/files/etc/systemd/system/zero-greetd.service" /etc/systemd/system/zero-greetd.service 0644
@@ -94,6 +95,7 @@ sh "$REPO_DIR/scripts/setup-lightdm-policy.sh" "$ROOT"
 sh "$REPO_DIR/scripts/setup-greetd.sh" "$ROOT"
 sh "$REPO_DIR/scripts/setup-user-services.sh" "$ROOT"
 sh "$REPO_DIR/scripts/setup-quiet-boot.sh" "$ROOT"
+sh "$REPO_DIR/scripts/setup-external-uart.sh" "$ROOT"
 
 # Older builds installed NOPASSWD sudoers entries for zero-helper. The
 # polkit-backed model intentionally removes that bypass.

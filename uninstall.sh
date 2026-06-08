@@ -45,6 +45,7 @@ rm -f /usr/local/bin/cardputer-zero-shell-session
 rm -f /usr/local/bin/cardputer-zero-session
 rm -f /usr/local/bin/zero-window-agent
 rm -f /usr/local/bin/zero-key-policy
+rm -f /usr/local/libexec/cardputer-zero/setup-external-uart.sh
 rm -f /usr/local/sbin/zero-helper
 rm -f /usr/local/sbin/zero-hdmi-lightdm-policy
 rm -f /usr/share/X11/xkb/keycodes/cardputerzero

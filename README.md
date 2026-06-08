@@ -298,8 +298,10 @@ user app or shell
 | `polkit-agent/zero-polkit-prompt-wayland.cpp` | Zero-sized Wayland password prompt. |
 | `files/etc/udev/rules.d/99-cardputer-zero.rules` | Device groups, permissions, and DRM symlinks. |
 | `scripts/setup-internal-drm-display.sh` | Installs the internal DRM display overlay and panel firmware. |
+| `scripts/setup-external-uart.sh` | Releases GPIO14/GPIO15 UART from serial console/getty for optional external serial accessories. |
 | `scripts/build-st7789v-panel-firmware.sh` | Generates the ST7789 `panel-mipi-dbi` firmware file. |
 | `scripts/probe-graphics-stack.sh` | Prints DRM, SPI, overlay, module, and labwc facts. |
+| `scripts/probe-devices.sh` | Prints device nodes, GPIO/SPI/I2C facts, and external UART ownership. |
 | `scripts/probe-labwc-session.sh` | Inspects labwc/logind/session state. |
 | `scripts/test-labwc-internal-session.sh` | One-shot internal labwc smoke test. |
 
@@ -329,6 +331,7 @@ systemctl status zero-greetd.service
 ls -l /dev/dri/cardputer-zero-internal /dev/dri/cardputer-zero-hdmi
 ps -eo user,pid,args | grep -E 'zero-greeter-wayland|zero-shell-wayland|labwc|zero-key-policy'
 XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-0 zero-window-agent --once
+sh scripts/probe-devices.sh
 ```
 
 Expected task snapshot examples:

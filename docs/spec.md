@@ -16,6 +16,7 @@ In scope:
 - internal keyboard XKB profile,
 - global Zero keyboard policy,
 - device permission setup,
+- external GPIO14/GPIO15 UART ownership setup,
 - restricted privileged helper,
 - Wayland polkit authorization prompt,
 - SSH/HDMI recovery surface preservation,
@@ -166,6 +167,30 @@ Non-role:
 - direct input-device ownership,
 - root-only display policy,
 - HDMI desktop power policy.
+
+### setup-external-uart.sh
+
+Path:
+
+```text
+/usr/local/libexec/cardputer-zero/setup-external-uart.sh
+```
+
+Role:
+
+- remove `console=ttyS0,...` and `console=serial0,...` from Raspberry Pi
+  `cmdline.txt`,
+- keep `enable_uart=1` in `config.txt`,
+- mask `serial-getty@ttyS0.service`,
+- disable `hciuart.service` when running on the live system,
+- leave GPIO14/GPIO15 UART available to optional external serial accessories.
+
+Non-role:
+
+- GPS parsing,
+- NMEA source selection,
+- Trail Mate service configuration,
+- changing application-level location state.
 
 ### zero-key-policy.service
 
